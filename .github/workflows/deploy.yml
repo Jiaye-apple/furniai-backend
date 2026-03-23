@@ -1,0 +1,26 @@
+name: 自动部署到生产服务器
+
+# 推送到 main 分支时自动触发部署
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    name: 部署到服务器
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH 部署
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd /root/furniai
+            echo "📦 拉取最新代码..."
+            git pull origin main
+            echo "🔄 重启服务..."
+            pm2 restart furniai
+            echo "✅ 部署完成: $(date '+%Y-%m-%d %H:%M:%S')"
+            pm2 list | grep furniai

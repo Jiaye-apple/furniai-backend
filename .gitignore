@@ -1,0 +1,33 @@
+# 依赖
+node_modules/
+
+# 环境变量（含敏感信息）
+.env
+.env.*
+
+# 日志
+logs/
+*.log
+
+# 临时文件
+temp/
+tmp/
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# 敏感文件（禁止上传）
+password.md
+*.key
+*.pem
+
+# 对接/调试目录（含 API Key、代理配置等）
+duijie/
+
+# 测试脚本（可能含密钥）
+test_*.js
+test_*.mjs
+test_*.cjs
