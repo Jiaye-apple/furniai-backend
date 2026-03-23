@@ -6331,6 +6331,9 @@
         '/api/ai/furniai/analyze': [
           { name: 'image', type: 'string (base64/URL)', required: true, desc: '待分析的家具图片，支持 base64 编码或图片 URL' },
         ],
+        '/api/ai/furniai/deep-analyze': [
+          { name: 'image', type: 'string (base64/URL)', required: true, desc: '待深度分析的家具图片' },
+        ],
         '/api/ai/furniai/generate': [
           { name: 'image', type: 'string (base64/URL)', required: true, desc: '参考家具图片（产品原图）' },
           { name: 'taskType', type: 'string', required: true, desc: '任务类型（如 white-bg, scene, multi-view 等）' },
